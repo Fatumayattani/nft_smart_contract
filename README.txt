@@ -1,28 +1,51 @@
-REMIX DEFAULT WORKSPACE
+# NFT Marketplace Smart Contract
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+## Overview
 
-This workspace contains 3 directories:
+This smart contract provides a basic NFT (Non-Fungible Token) marketplace on Ethereum. It allows users to create, buy, and manage NFTs. Built with Solidity 0.5.1, this contract enables token creation with unique URIs, listing tokens for sale, and transferring ownership between users.
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+## Features
 
-SCRIPTS
+- **Create NFTs**: Users can mint new NFTs with a specified URI and price.
+- **Update Prices**: Owners can update the sale price of their NFTs.
+- **Buy NFTs**: Users can purchase NFTs by sending ETH to the contract.
+- **View Token Details**: Users can view details about any NFT, including the owner, price, and URI.
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+## Smart Contract Functions
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+### `createNFT(string memory tokenURI, uint price)`
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+Creates a new NFT with the specified `tokenURI` and `price`. Only the contract owner can call this function.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+- **Parameters**:
+  - `tokenURI`: A string representing the URI for the NFT metadata.
+  - `price`: The sale price of the NFT in wei.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+- **Returns**: The token ID of the newly created NFT.
+
+### `updatePrice(uint tokenId, uint newPrice)`
+
+Updates the sale price of an existing NFT. Only the current owner of the NFT can update its price.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to update.
+  - `newPrice`: The new price of the NFT in wei.
+
+### `buyNFT(uint tokenId)`
+
+Allows a user to purchase an NFT. Transfers ownership of the NFT to the buyer and sends the sale amount to the seller.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to purchase.
+
+### `getTokenDetails(uint tokenId)`
+
+Fetches details of a specific NFT.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to query.
+
+- **Returns**:
+  - `address`: The owner of the NFT.
+  - `uint`: The price of the NFT in wei.
+  - `string memory`: The URI associated with the NFT.
