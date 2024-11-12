@@ -7,3 +7,15 @@ This smart contract provides a basic NFT (Non-Fungible Token) marketplace on Eth
 - **Create NFTs**: Users can mint new NFTs with a specified URI and price.
 - **Update Prices**: Owners can update the sale price of their NFTs.
 - **Buy NFTs**: Users can purchase NFTs by sending ETH to the contract.
+
+## Smart Contract Functions
+
+### `createNFT(string memory tokenURI, uint price)`
+Creates a new NFT with the specified `tokenURI` and `price`. Only the contract owner can call this function.
+
+- **Parameters**:
+  - `tokenURI`: A string representing the URI for the NFT metadata.
+  - `price`: The sale price of the NFT in wei.
+- **Returns**: The token ID of the newly created NFT.
+
+---
