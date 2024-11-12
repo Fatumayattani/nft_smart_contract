@@ -19,3 +19,12 @@ Creates a new NFT with the specified `tokenURI` and `price`. Only the contract o
 - **Returns**: The token ID of the newly created NFT.
 
 ---
+
+### `updatePrice(uint tokenId, uint newPrice)`
+Updates the sale price of an existing NFT. Only the current owner of the NFT can update its price.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to update.
+  - `newPrice`: The new price of the NFT in wei.
+
+---
