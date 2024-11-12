@@ -28,3 +28,10 @@ Updates the sale price of an existing NFT. Only the current owner of the NFT can
   - `newPrice`: The new price of the NFT in wei.
 
 ---
+### `buyNFT(uint tokenId)`
+Allows a user to purchase an NFT. Transfers ownership of the NFT to the buyer and sends the sale amount to the seller.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to purchase.
+
+---
