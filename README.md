@@ -35,3 +35,12 @@ Allows a user to purchase an NFT. Transfers ownership of the NFT to the buyer an
   - `tokenId`: The ID of the NFT to purchase.
 
 ---
+### `getTokenDetails(uint tokenId)`
+Fetches details of a specific NFT.
+
+- **Parameters**:
+  - `tokenId`: The ID of the NFT to query.
+- **Returns**:
+  - `address`: The owner of the NFT.
+  - `uint`: The price of the NFT in wei.
+  - `string memory`: The URI associated with the NFT.
